@@ -6,16 +6,25 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ListaServicoPageModule } from '../pages/lista-servico/lista-servico.module';
+import { EsperaAtendPageModule } from '../pages/espera-atend/espera-atend.module';
+import { AvaliaAtendPageModule } from '../pages/avalia-atend/avalia-atend.module';
+
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ListaServicoPageModule,
+    EsperaAtendPageModule,
+    AvaliaAtendPageModule
   ],
+
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -24,7 +33,9 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+
   ]
+
 })
 export class AppModule {}

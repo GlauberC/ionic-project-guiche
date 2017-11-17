@@ -1,14 +1,41 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Home
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-slides pager>
+
+    <ion-slide>
+      <p>
+        Gostaria de pegar sua ficha virtual de algum serviço?
+      </p>
+      <a (click)="goToListaServicoPage()"> <button ion-button> Solicite seu serviço </button> </a>
+
+    </ion-slide>
+
+    <ion-slide>
+      <p>
+        Caso tenha cadastro, faça seu login:
+      </p>
+
+      <ion-list>
+
+        <ion-item>
+          <ion-label fixed>Email</ion-label>
+          <ion-input type="text" value=""></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+        <button ion-button>Logar</button>
+      </ion-list>
+      </ion-slide>
+
+    </ion-slides>
 </ion-content>
