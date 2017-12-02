@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EsperaAtendPage } from '../espera-atend/espera-atend';
+import { ServiceProvider } from '../../providers/service/service';
 
 /**
  * Generated class for the ListaServicoPage page.
@@ -16,8 +17,12 @@ import { EsperaAtendPage } from '../espera-atend/espera-atend';
 })
 export class ListaServicoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public service: ServiceProvider) {
+      this.getListaServico();
   }
+  servs : any[];
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaServicoPage');
@@ -25,5 +30,11 @@ export class ListaServicoPage {
   goToEsperaAtend(){
     this.navCtrl.push(EsperaAtendPage);
   }
+  getListaServico(){
+  this.service.getServico().subscribe(
+    data => this.servs = data,
+    err => console.log(err)
+  );
+}
 
 }

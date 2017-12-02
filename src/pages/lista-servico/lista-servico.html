@@ -16,8 +16,12 @@
 <ion-content padding>
 
 <ion-content>
-    <ion-item><a (click) = "goToEsperaAtend()" > Serviço 1 </a></ion-item>
-    <ion-item>Serviço 2</ion-item>
+    <ion-card>
+      <ion-card-content *ngFor="let serv of servs" (click)="goToEsperaAtend()" >
+        <h1>{{serv.nome}}</h1>
+        <p>{{serv.descricao}}</p>
+      </ion-card-content>
+    </ion-card>
 </ion-content>
 
 

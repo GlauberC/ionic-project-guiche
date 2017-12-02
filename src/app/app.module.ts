@@ -4,6 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { ServiceProvider } from '../providers/service/service';
+import { HttpModule } from '@angular/http';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListaServicoPageModule } from '../pages/lista-servico/lista-servico.module';
@@ -13,6 +16,7 @@ import { LogadoPageModule } from '../pages/logado/logado.module';
 import { CadastraServPageModule } from '../pages/cadastra-serv/cadastra-serv.module';
 import { CadastraFuncPageModule } from '../pages/cadastra-func/cadastra-func.module';
 import { AtendPageModule } from '../pages/atend/atend.module';
+import { ServiceProvider } from '../providers/service/service';
 
 
 
@@ -30,7 +34,8 @@ import { AtendPageModule } from '../pages/atend/atend.module';
     LogadoPageModule,
     CadastraServPageModule,
     CadastraFuncPageModule,
-    AtendPageModule
+    AtendPageModule,
+    HttpModule
   ],
 
   bootstrap: [IonicApp],
@@ -42,6 +47,7 @@ import { AtendPageModule } from '../pages/atend/atend.module';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ServiceProvider,
 
   ]
 
