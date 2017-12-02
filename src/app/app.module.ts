@@ -9,6 +9,10 @@ import { HomePage } from '../pages/home/home';
 import { ListaServicoPageModule } from '../pages/lista-servico/lista-servico.module';
 import { EsperaAtendPageModule } from '../pages/espera-atend/espera-atend.module';
 import { AvaliaAtendPageModule } from '../pages/avalia-atend/avalia-atend.module';
+import { LogadoPageModule } from '../pages/logado/logado.module';
+import { CadastraServPageModule } from '../pages/cadastra-serv/cadastra-serv.module';
+import { CadastraFuncPageModule } from '../pages/cadastra-func/cadastra-func.module';
+import { AtendPageModule } from '../pages/atend/atend.module';
 
 
 
@@ -22,7 +26,11 @@ import { AvaliaAtendPageModule } from '../pages/avalia-atend/avalia-atend.module
     IonicModule.forRoot(MyApp),
     ListaServicoPageModule,
     EsperaAtendPageModule,
-    AvaliaAtendPageModule
+    AvaliaAtendPageModule,
+    LogadoPageModule,
+    CadastraServPageModule,
+    CadastraFuncPageModule,
+    AtendPageModule
   ],
 
   bootstrap: [IonicApp],
