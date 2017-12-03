@@ -15,4 +15,46 @@
 
 
 <ion-content padding>
+
+
+  <ion-list inset>
+
+    <ion-item>
+      <ion-label>Nome</ion-label>
+      <ion-input type="text" [(ngModel)] = "data.nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>cpf</ion-label>
+      <ion-input type="text" [(ngModel)] = "data.cpf"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>email</ion-label>
+      <ion-input type="text" [(ngModel)] = "data.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>senha</ion-label>
+      <ion-input type="password" [(ngModel)] = "data.senha"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Função</ion-label>
+      <ion-input type="number" [(ngModel)] = "data.id_funcao"></ion-input>
+    </ion-item>
+
+    <button ion-button (click)="postCadastraU(data)">Cadastro</button>
+  </ion-list>
+
+  <ion-content>
+      <ion-card>
+        <ion-card-content *ngFor="let user of funcionarios" >
+          <h1>{{user.nome}}</h1>
+          <p>{{user.cpf}}</p>
+          <p>{{user.email}}</p>
+          <p>{{user.id_funcao}}</p>
+        </ion-card-content>
+      </ion-card>
+  </ion-content>
+
+
+
 </ion-content>

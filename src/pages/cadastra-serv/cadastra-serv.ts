@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ServiceProvider } from '../../providers/service/service';
 
 /**
  * Generated class for the CadastraServPage page.
@@ -15,12 +16,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CadastraServPage {
   nomeU : string ;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public service: ServiceProvider) {
+    this.getListaUser()
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastraServPage');
     this.nomeU = this.navParams.get('nome');
   }
+
 
 }

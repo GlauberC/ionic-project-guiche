@@ -19,7 +19,7 @@ import { ServiceProvider } from '../../providers/service/service';
 })
 export class LogadoPage {
 
-  usuario : array <{}>
+  usuario : any[];
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public service: ServiceProvider) {

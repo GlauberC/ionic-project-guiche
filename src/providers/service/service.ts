@@ -23,5 +23,18 @@ export class ServiceProvider {
     getUser(){
       return this.http.get(this.api + 'recuperaUser.php').map(res=>res.json())
     }
+    getListaUser(){
+      return this.http.get(this.api + 'recuperaUsuarios.php').map(res=>res.json())
+    }
 
-  }
+
+     postCadastraU( data ){
+           let headers = new Headers({'Content-Type' : 'application/x-www-form-urlencoded' });
+           return this.http.post(this.api + "cadastraUser.php", data,{
+             headers: headers,
+             method: "POST"
+           }).map(
+             (res:Response) => {return res.json();}
+           );
+         }
+}
