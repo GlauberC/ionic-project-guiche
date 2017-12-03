@@ -18,6 +18,7 @@ import { AlertController } from 'ionic-angular';
 export class CadastraFuncPage {
   nomeU : string;
   funcionarios : any[];
+  funcao: any[];
 
   public data = {
     nome: "",
@@ -32,7 +33,8 @@ export class CadastraFuncPage {
               public alertCtrl: AlertController,
               public service: ServiceProvider) {
 
-     this.getListaUser()
+     this.getListaUser();
+     this.getListaFuncao();
   }
 
   ionViewDidLoad() {
@@ -43,6 +45,12 @@ export class CadastraFuncPage {
   getListaUser(){
   this.service.getListaUser().subscribe(
     data => this.funcionarios = data,
+    err => console.log(err)
+  );
+  }
+  getListaFuncao(){
+  this.service.getListaFuncao().subscribe(
+    data => this.funcao = data,
     err => console.log(err)
   );
   }

@@ -26,6 +26,10 @@ export class ServiceProvider {
     getListaUser(){
       return this.http.get(this.api + 'recuperaUsuarios.php').map(res=>res.json())
     }
+    getListaFuncao(){
+      return this.http.get(this.api + 'recuperaFuncao.php').map(res=>res.json())
+    }
+
 
 
      postCadastraU( data ){
