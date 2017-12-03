@@ -40,5 +40,14 @@ export class ServiceProvider {
            }).map(
              (res:Response) => {return res.json();}
            );
-         }
+      }
+      deletaUser( id ){
+            let headers = new Headers({'Content-Type' : 'application/x-www-form-urlencoded' });
+            return this.http.post(this.api + "deletaUser.php", id,{
+              headers: headers,
+              method: "POST"
+            }).map(
+              (res:Response) => {return res.json();}
+            );
+      }
 }

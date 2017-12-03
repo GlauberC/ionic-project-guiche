@@ -58,16 +58,51 @@ export class CadastraFuncPage {
     this.service.postCadastraU(data).subscribe(
       data=>console.log(data.mensage),
       err=>console.log(err),
-      this.showAlert()
+      this.showAlert('Cadastro Adicionado!', 'O cadastro foi feito com sucesso'),
+      this.getListaUser()
     )};
-    showAlert() {
+
+    deletaCadastro(data){
+
+      this.service.deletaUser(data.id).subscribe(
+        data=>console.log(data.mensage),
+        err=>console.log(err),
+        this.showConfirm()
+      )};
+
+
+  showAlert(titulo : string, sub : string){
   let alert = this.alertCtrl.create({
-    title: 'Cadastro Adicionado!',
-    subTitle: 'Seu cadastro foi feito com sucesso',
+    title: titulo,
+    subTitle: sub,
     buttons: ['OK']
   });
   alert.present();
+  }
 
-}
+  showConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: 'Deletando o Usuário',
+      message: 'Deseja resalmente deletar esse usuário?',
+      buttons: [
+        {
+          text: 'Não',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            this.showAlert('Usuário Deletado', 'Usuário deletado com sucesso');
+            this.getListaUser();
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
 
 }

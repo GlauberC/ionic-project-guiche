@@ -46,13 +46,26 @@
     <button ion-button (click)="postCadastraU(data)">Cadastro</button>
   </ion-list>
 
+  <ion-list *ngFor="let user of funcionarios" >
+    <ion-item-sliding>
+      <ion-item>
+        <h1>{{user.nome}}</h1>
+        <p>{{user.email}}</p>
+
+      </ion-item>
+      <ion-item-options side = "right">
+        <button ion-button color ="danger" (click) = "deletaCadastro(user)" >
+            Deletar
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
   <ion-content>
       <ion-card>
-        <ion-card-content *ngFor="let user of funcionarios" >
-          <h1>{{user.nome}}</h1>
-          <p>{{user.cpf}}</p>
-          <p>{{user.email}}</p>
-          <p>{{user.id_funcao}}</p>
+        <ion-card-content >
+
         </ion-card-content>
       </ion-card>
   </ion-content>
