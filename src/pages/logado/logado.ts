@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AtendPage } from '../atend/atend';
 import { CadastraFuncPage } from '../cadastra-func/cadastra-func';
 import { CadastraServPage } from '../cadastra-serv/cadastra-serv';
+import { ServiceProvider } from '../../providers/service/service';
 
 /**
  * Generated class for the LogadoPage page.
@@ -18,20 +19,32 @@ import { CadastraServPage } from '../cadastra-serv/cadastra-serv';
 })
 export class LogadoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  usuario : array <{}>
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public service: ServiceProvider) {
+      this.getUsuario();
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LogadoPage');
   }
-  goToAtendPage(){
-    this.navCtrl.push(AtendPage);
+  goToAtendPage(user){
+    this.navCtrl.push(AtendPage, user );
   }
-  goToCadastraFuncPage(){
-    this.navCtrl.push(CadastraFuncPage);
+  goToCadastraFuncPage(user){
+    this.navCtrl.push(CadastraFuncPage, user);
   }
-  goToCadastraServPage(){
-    this.navCtrl.push(CadastraServPage);
+  goToCadastraServPage(user){
+    this.navCtrl.push(CadastraServPage, user);
   }
+
+  getUsuario(){
+  this.service.getUser().subscribe(
+    data => this.usuario = data,
+    err => console.log(err)
+  )};
+
 
 }

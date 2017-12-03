@@ -7,20 +7,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Logado</ion-title>
+    <ion-title *ngFor="let user of usuario">{{user.nome}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding *ngFor="let user of usuario" >
   <ion-slides pager>
-
-    <ion-slide>
+    <ion-slide >
       <p>
         Há pessoas esperando, comece a atender:
       </p>
-      <a (click)="goToAtendPage()" > <button ion-button> Realizar Atendendimento </button> </a>
+      <a (click)="goToAtendPage(user)" > <button ion-button> Realizar Atendendimento </button> </a>
 
     </ion-slide>
 
@@ -28,8 +27,8 @@
       <p>
         Cadastre seus funcionários ou novos serviços
       </p>
-      <a (click)="goToCadastraFuncPage()"><button ion-button>Cadastrar Funcionarios</button></a>
-      <a (click)="goToCadastraServPage()"><button ion-button>Cadastrar Serviços</button></a>
+      <a (click)="goToCadastraFuncPage(user)"><button ion-button>Cadastrar Funcionarios</button></a>
+      <a (click)="goToCadastraServPage(user)"><button ion-button>Cadastrar Serviços</button></a>
 
       </ion-slide>
 

@@ -14,12 +14,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'atend.html',
 })
 export class AtendPage {
+  nomeU : string ;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AtendPage');
+    this.nomeU = this.navParams.get('nome');
   }
 
 }

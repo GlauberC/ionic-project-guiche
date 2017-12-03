@@ -20,5 +20,8 @@ export class ServiceProvider {
     getServico(){
       return this.http.get(this.api + 'recuperaServicos.php').map(res=>res.json())
     }
+    getUser(){
+      return this.http.get(this.api + 'recuperaUser.php').map(res=>res.json())
+    }
 
   }

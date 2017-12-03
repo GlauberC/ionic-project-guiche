@@ -14,12 +14,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'cadastra-func.html',
 })
 export class CadastraFuncPage {
+  nomeU : string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastraFuncPage');
+    this.nomeU = this.navParams.get('nome');
+
   }
 
 }
