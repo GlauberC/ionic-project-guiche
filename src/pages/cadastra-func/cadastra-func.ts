@@ -56,10 +56,12 @@ export class CadastraFuncPage {
   }
   postCadastraU(data){
     this.service.postCadastraU(data).subscribe(
-      data=>console.log(data.mensage),
-      err=>console.log(err),
-      this.showAlert('Cadastro Adicionado!', 'O cadastro foi feito com sucesso'),
-      this.getListaUser()
+      data=>{
+      console.log(data.mensage);
+      this.getListaUser();
+      err=>console.log(err);
+      this.showAlert('Cadastro Adicionado!', 'O cadastro foi feito com sucesso');
+      }
     )};
 
     deletaCadastro(data){
@@ -69,6 +71,7 @@ export class CadastraFuncPage {
         err=>console.log(err),
         this.showConfirm()
       )};
+
 
 
   showAlert(titulo : string, sub : string){
@@ -102,6 +105,53 @@ export class CadastraFuncPage {
       ]
     });
     confirm.present();
+  }
+
+  editaPerfil(req) {
+    let prompt = this.alertCtrl.create({
+      title: 'Editar Perfil',
+      inputs: [
+        {
+          name: 'nome',
+          placeholder: 'nome',
+          value: req.nome
+        },
+
+        {
+          name: 'email',
+          placeholder: 'email',
+          value: req.email
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Salvar',
+          handler: data => {
+            let params :any ={
+                id: req.id,
+                nome: data.nome,
+                email: data.email
+            }
+            console.log('Saved clicked');
+            this.service.editaUser(params).subscribe(
+              data=>{
+                console.log(data.mensage);
+                this.getListaUser();
+                err=>console.log(err);
+                }
+
+            )
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 
 

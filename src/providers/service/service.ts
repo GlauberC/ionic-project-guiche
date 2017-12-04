@@ -29,6 +29,9 @@ export class ServiceProvider {
     getListaFuncao(){
       return this.http.get(this.api + 'recuperaFuncao.php').map(res=>res.json())
     }
+    getListaServ(){
+      return this.http.get(this.api + 'recuperaServicos.php').map(res=>res.json())
+    }
 
 
 
@@ -50,4 +53,43 @@ export class ServiceProvider {
               (res:Response) => {return res.json();}
             );
       }
+
+      editaUser( data ){
+            let headers = new Headers({'Content-Type' : 'application/x-www-form-urlencoded' });
+            return this.http.post(this.api + "editaUser.php", data,{
+              headers: headers,
+              method: "POST"
+            }).map(
+              (res:Response) => {return res.json();}
+            );
+      }
+
+      postCadastraServ( data ){
+            let headers = new Headers({'Content-Type' : 'application/x-www-form-urlencoded' });
+            return this.http.post(this.api + "cadastraServ.php", data,{
+              headers: headers,
+              method: "POST"
+            }).map(
+              (res:Response) => {return res.json();}
+            );
+       }
+
+       deletaServico( id ){
+             let headers = new Headers({'Content-Type' : 'application/x-www-form-urlencoded' });
+             return this.http.post(this.api + "deletaServ.php", id,{
+               headers: headers,
+               method: "POST"
+             }).map(
+               (res:Response) => {return res.json();}
+             );
+       }
+       editaServico( data ){
+             let headers = new Headers({'Content-Type' : 'application/x-www-form-urlencoded' });
+             return this.http.post(this.api + "editaServ.php", data,{
+               headers: headers,
+               method: "POST"
+             }).map(
+               (res:Response) => {return res.json();}
+             );
+       }
 }

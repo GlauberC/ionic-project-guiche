@@ -14,5 +14,41 @@
 
 
 <ion-content padding>
+  <ion-list inset>
+    <ion-item>
+      <ion-label>Nome do serviço: </ion-label>
+      <ion-input type="text" [(ngModel)] = "data.nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Descrição: </ion-label>
+      <ion-input type="text" [(ngModel)] = "data.descricao"></ion-input>
+    </ion-item>
+  <button ion-button (click)="postCadastraServ(data)">Cadastro</button>
+  </ion-list>
+
+  <ion-list *ngFor="let serv of servicos" >
+    <ion-item-sliding>
+      <ion-item>
+        <h1>{{serv.nome}}</h1>
+        <p>{{serv.descricao}}</p>
+
+      </ion-item>
+
+      <ion-item-options side = "right">
+        <button ion-button color ="danger" (click) = "deletaServico(serv)" >
+            Deletar
+        </button>
+      </ion-item-options>
+
+      <ion-item-options side = "left">
+        <button ion-button color ="secondary" (click) = "editaServico(serv)" >
+            Editar
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
 
 </ion-content>

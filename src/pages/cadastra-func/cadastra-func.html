@@ -53,22 +53,22 @@
         <p>{{user.email}}</p>
 
       </ion-item>
+
       <ion-item-options side = "right">
         <button ion-button color ="danger" (click) = "deletaCadastro(user)" >
             Deletar
         </button>
       </ion-item-options>
 
+      <ion-item-options side = "left">
+        <button ion-button color ="secondary" (click) = "editaPerfil(user)" >
+            Editar
+        </button>
+      </ion-item-options>
+
     </ion-item-sliding>
   </ion-list>
 
-  <ion-content>
-      <ion-card>
-        <ion-card-content >
-
-        </ion-card-content>
-      </ion-card>
-  </ion-content>
 
 
 
